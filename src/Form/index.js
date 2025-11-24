@@ -1,4 +1,5 @@
 import "./style.css";
+import Buttons from "../Buttons/inbex.js";
 
 const Form = () => (
 <form className="form js-form">
@@ -36,26 +37,9 @@ const Form = () => (
               </label>
             </p>
           </fieldset>
-          <p>
-            <button
-              className="form__button"
-              type="submit"
-              value="Przelicz"
-              title="Przelicz"
-            >
-              Przelicz
-            </button>
-          </p>
-          <p>
-            <button
-              className="form__button"
-              type="reset"
-              value="Wyczyść"
-              title="Wyczyść"
-            >
-              Wyczyść
-            </button>
-          </p>
+          
+          <Buttons/>
+          
           <p>
             <label>
               Po przewalutowaniu dostaniesz:
