@@ -1,0 +1,29 @@
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table__row {
+    background-color: hsl(0, 24%, 94%);
+}
+
+.table__row:hover {
+    background-color: hsl(0, 21%, 89%);
+}
+
+.table__header {
+    border-style: groove;
+    background-color: hsl(0, 20%, 79%);
+}
+
+.table__cell {
+    border-style: solid;
+    border-width: 2px;
+    border-color: hsl(0, 0%, 67%);
+    text-align: center;
+}
+
+.table__caption {
+    margin: 5px;
+    padding: 2px;
+}
