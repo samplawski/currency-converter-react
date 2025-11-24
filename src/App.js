@@ -9,11 +9,11 @@ import Footer from "./Footer";
 function App() {
   return (
     <Body>
-      <TableContainer className="tableContainer">
+      <TableContainer>
         <Table />
       </TableContainer>
 
-      <Converter className="converter">
+      <Converter>
         <Form />
       </Converter>
 
