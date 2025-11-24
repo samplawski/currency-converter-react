@@ -1,0 +1,43 @@
+.form__fieldset {
+    border-radius: 3px;
+}
+
+.form__legend {
+    border-radius: 3px;
+    background-color: hsl(39, 51%, 68%);
+    padding: 4px 8px;
+}
+
+.form__labelText {
+    width: 100%;
+    max-width: 180px;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.form__currencyField {
+    border: 2px solid #ccc;
+    padding: 6px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 3px;
+}
+
+.form__button {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-radius: 3px;
+    background-color: hsl(39, 51%, 68%);
+    padding: 4px;
+}
+
+.form__button:hover {
+    background-color: hsl(39, 51%, 48%);
+}
+
+.form__button:active {
+    background-color: hsl(39, 51%, 38%);
+}
