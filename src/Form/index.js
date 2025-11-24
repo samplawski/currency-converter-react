@@ -1,5 +1,6 @@
 import "./style.css";
 import Buttons from "../Buttons/inbex.js";
+import Output from "../Output/index.js";
 
 const Form = () => (
 <form className="form js-form">
@@ -40,14 +41,7 @@ const Form = () => (
           
           <Buttons/>
           
-          <p>
-            <label>
-              Po przewalutowaniu dostaniesz:
-              <strong className="js-output">
-                Wybierz walutę i wpisz kwotę do wymiany.
-              </strong>
-            </label>
-          </p>
+       <Output/>
         </form>
 );
 
