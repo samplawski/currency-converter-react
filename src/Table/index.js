@@ -18,7 +18,7 @@ const Table = () => (
           Symbol
         </th>
         <th className="table__header" scope="col">
-          {/* Aktualny kurs aktualny kurs walut wpisywać w script.js:12:14, 13:14, 14:15) */}
+          Aktualny kurs {/* aktualny kurs walut wpisywać w script.js:12:14, 13:14, 14:15) */}
         </th>
       </tr>
     </thead>
