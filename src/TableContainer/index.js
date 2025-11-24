@@ -1,7 +1,7 @@
 import "./style.css";
 
 const TableContainer = ({ children }) => (
-    <main className="container">
+    <main className="tableContainer">
         {children}
     </main>
 );
