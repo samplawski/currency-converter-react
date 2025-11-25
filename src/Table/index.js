@@ -19,7 +19,6 @@ const Table = ({ currencies }) => (
         </th>
         <th className="table__header" scope="col">
           Aktualny kurs
-          {/* aktualny kurs walut wpisywać App.js w liniach: 17, 25, 33) */}
         </th>
       </tr>
     </thead>
