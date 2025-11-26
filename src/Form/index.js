@@ -4,7 +4,7 @@ import Output from "../Output/index.js";
 import Input from "../Input/index.js";
 
 const Form = ({currencies}) => (
-  <form className="form js-form">
+  <form className="form">
     <Input currencies={currencies}/>
     <Buttons />
     <Output />
