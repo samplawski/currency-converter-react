@@ -7,7 +7,7 @@ import Form from "./Form";
 import Footer from "./Footer";
 
 function App() {
-   const [currencies, setCurrencies] = useState([
+  const [currencies, setCurrencies] = useState([
     {
       id: 1,
       name: "United States dollar",
@@ -42,16 +42,27 @@ function App() {
     },
   ]);
 
-   const [amountPLN, setAmountPLN] = useState("");
-   const handleAmountChange = (newAmount) => {
-    setAmountPLN(newAmount)
-   };
+  const [amountPLN, setAmountPLN] = useState("");
+  const handleAmountChange = (newAmount) => {
+    setAmountPLN(newAmount);
+  };
 
-   
-//   const countOutput = (amountPLN, targetCurrency) => {
-//         const rate = getRate(targetCurrency)
-//         return amountPLN / rate;
-//     };
+  function setFocusOnAmountInput() {
+    const amountInput = document.getElementById("amountInput");
+
+    if (amountInput) {
+      amountInput.focus();
+      console.log("Ustawiono automatyczny focus na pole kwoty.");
+    } else {
+      console.error("Nie znaleziono elementu o ID 'amountInput'.");
+    }
+  }
+
+  window.onload = setFocusOnAmountInput; 
+  // const countOutput = (amountPLN, targetCurrency) => {
+  //       const rate = getRate(targetCurrency)
+  //       return amountPLN / rate;
+  //   };
 
   return (
     <Body>
@@ -60,10 +71,10 @@ function App() {
       </TableContainer>
 
       <Converter>
-        <Form 
-        currencies={currencies}
-        amountPLN={amountPLN}
-        onAmountChange={handleAmountChange}
+        <Form
+          currencies={currencies}
+          amountPLN={amountPLN}
+          onAmountChange={handleAmountChange}
         />
       </Converter>
 
