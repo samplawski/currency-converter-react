@@ -3,9 +3,9 @@ import Buttons from "../Buttons/inbex.js";
 import Output from "../Output/index.js";
 import Input from "../Input/index.js";
 
-const Form = () => (
+const Form = ({currencies}) => (
   <form className="form js-form">
-    <Input />
+    <Input currencies={currencies}/>
     <Buttons />
     <Output />
   </form>
