@@ -1,3 +1,5 @@
+import "./style.css";
+
 const Input = ({ currencies }) => (
   <fieldset className="form__fieldset">
     <legend className="form__legend">Kalkulator walut</legend>
@@ -5,7 +7,7 @@ const Input = ({ currencies }) => (
     <p>
       <label>
         <span className="form__labelText">Wybierz walutę:</span>
-        <select>
+        <select className="form__currencyField">
           {currencies.map((currency) => (
             <option key={currency.id}>{currency.symbol} {currency.code}</option>
           ))}

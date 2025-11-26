@@ -1,4 +1,3 @@
-import "./style.css";
 import Buttons from "../Buttons/inbex.js";
 import Output from "../Output/index.js";
 import Input from "../Input/index.js";
