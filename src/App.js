@@ -7,7 +7,7 @@ import Form from "./Form";
 import Footer from "./Footer";
 
 function App() {
-  const [currencies, setCurrencies] = useState([
+   const [currencies, setCurrencies] = useState([
     {
       id: 1,
       name: "United States dollar",
@@ -42,6 +42,17 @@ function App() {
     },
   ]);
 
+   const [amountPLN, setAmountPLN] = useState("");
+   const handleAmountChange = (newAmount) => {
+    setAmountPLN(newAmount)
+   };
+
+   
+//   const countOutput = (amountPLN, targetCurrency) => {
+//         const rate = getRate(targetCurrency)
+//         return amountPLN / rate;
+//     };
+
   return (
     <Body>
       <TableContainer>
@@ -49,7 +60,11 @@ function App() {
       </TableContainer>
 
       <Converter>
-        <Form currencies={currencies} />
+        <Form 
+        currencies={currencies}
+        amountPLN={amountPLN}
+        onAmountChange={handleAmountChange}
+        />
       </Converter>
 
       <Footer />
