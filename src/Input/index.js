@@ -21,7 +21,6 @@ const Input = ({ currencies, amountPLN, onAmountChange }) => (
       <label>
         <span className="form__labelText">Ile PLN chcesz wymienić:</span>
         <input
-          id="amountInput"
           onChange={({ target }) => onAmountChange(target.value)}
           value={amountPLN}
           className="form__currencyField"

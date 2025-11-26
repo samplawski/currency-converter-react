@@ -43,26 +43,35 @@ function App() {
   ]);
 
   const [amountPLN, setAmountPLN] = useState("");
+
+  const [targetCurrencyCode, setTargetCurrencyCode] = useState("USD");
+
   const handleAmountChange = (newAmount) => {
     setAmountPLN(newAmount);
   };
 
-  function setFocusOnAmountInput() {
-    const amountInput = document.getElementById("amountInput");
+  const handleCurrencyChange = (newCurrencyCode) => {
+    setTargetCurrencyCode(newCurrencyCode);
+  };
 
-    if (amountInput) {
-      amountInput.focus();
-      console.log("Ustawiono automatyczny focus na pole kwoty.");
-    } else {
-      console.error("Nie znaleziono elementu o ID 'amountInput'.");
+  const getRate = (code) => {
+    const currency = currencies.find((currency) => currency.code === code);
+    if (!currency) {
+      console.error(`Nie znaleziono waluty o kodzie: ${code}`);
+      return 1.0;
     }
-  }
+    return currency.rate;
+  };
 
-  window.onload = setFocusOnAmountInput; 
-  // const countOutput = (amountPLN, targetCurrency) => {
-  //       const rate = getRate(targetCurrency)
-  //       return amountPLN / rate;
-  //   };
+  const countOutput = (amountPLN, targetCurrencyCode) => {
+    const rate = getRate(targetCurrencyCode);
+    const amount = parseFloat(amountPLN);
+    if (isNaN(amount) || amount <= 0) return 0;
+    const convertedValue = amount / rate;
+    return convertedValue.toFixed(2);
+  };
+
+  const calculatedOutput = countOutput(amountPLN, targetCurrencyCode);
 
   return (
     <Body>
@@ -75,6 +84,9 @@ function App() {
           currencies={currencies}
           amountPLN={amountPLN}
           onAmountChange={handleAmountChange}
+          calculatedOutput={calculatedOutput}
+          onCurrencyChange={handleCurrencyChange}
+          targetCurrencyChange={targetCurrencyCode}
         />
       </Converter>
 

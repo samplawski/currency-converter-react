@@ -2,7 +2,14 @@ import Buttons from "../Buttons/inbex.js";
 import Output from "../Output/index.js";
 import Input from "../Input/index.js";
 
-const Form = ({ currencies, amountPLN, onAmountChange }) => {
+const Form = ({
+  currencies,
+  amountPLN,
+  onAmountChange,
+  calculatedOutput,
+  targetCurrencyChange,
+  onCurrencyChange,
+}) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
   };
@@ -14,7 +21,12 @@ const Form = ({ currencies, amountPLN, onAmountChange }) => {
         onAmountChange={onAmountChange}
       />
       <Buttons />
-      <Output amountPLN={amountPLN} />
+      <Output
+        amountPLN={amountPLN}
+        calculatedOutput={calculatedOutput}
+        targetCurrencyChange={targetCurrencyChange}
+        onCurrencyChange={onCurrencyChange}
+      />
     </form>
   );
 };
