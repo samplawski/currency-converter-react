@@ -1,7 +1,7 @@
 # Currency converter
 A simple currency conversion application built with modern React.
 
-You can try it under this [link](https://samplawski.github.io/currency-converter-react//).
+You can try it under this [link](https://samplawski.github.io/currency-converter-react/).
 
 
 <img src="./public/screenshot.jpg" width="45%" alt="currency converter screenshot">
