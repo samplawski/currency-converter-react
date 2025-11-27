@@ -7,8 +7,9 @@ const Form = ({
   amountPLN,
   onAmountChange,
   calculatedOutput,
-  targetCurrencyChange,
+  targetCurrencyCode,
   onCurrencyChange,
+  onReset,
 }) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -19,13 +20,14 @@ const Form = ({
         currencies={currencies}
         amountPLN={amountPLN}
         onAmountChange={onAmountChange}
-      />
-      <Buttons />
-      <Output
-        amountPLN={amountPLN}
-        calculatedOutput={calculatedOutput}
-        targetCurrencyChange={targetCurrencyChange}
+        targetCurrencyCode={targetCurrencyCode}
         onCurrencyChange={onCurrencyChange}
+      />
+      <Buttons onReset={onReset} />
+      <Output
+        calculatedOutput={calculatedOutput}
+        targetCurrencyCode={targetCurrencyCode}
+        currencies={currencies}
       />
     </form>
   );

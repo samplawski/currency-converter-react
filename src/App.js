@@ -73,6 +73,12 @@ function App() {
 
   const calculatedOutput = countOutput(amountPLN, targetCurrencyCode);
 
+
+
+  const handleReset = () => {
+    setAmountPLN("");
+  };
+
   return (
     <Body>
       <TableContainer>
@@ -86,7 +92,8 @@ function App() {
           onAmountChange={handleAmountChange}
           calculatedOutput={calculatedOutput}
           onCurrencyChange={handleCurrencyChange}
-          targetCurrencyChange={targetCurrencyCode}
+          targetCurrencyCode={targetCurrencyCode}
+          onReset={handleReset}
         />
       </Converter>
 
