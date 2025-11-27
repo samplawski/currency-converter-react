@@ -1,15 +1,25 @@
 import "./style.css";
 
-const Input = ({ currencies, amountPLN, onAmountChange }) => (
+const Input = ({
+  currencies,
+  amountPLN,
+  onAmountChange,
+  onCurrencyChange,
+  targetCurrencyCode,
+}) => (
   <fieldset className="form__fieldset">
     <legend className="form__legend">Kalkulator walut</legend>
 
     <p>
       <label>
         <span className="form__labelText">Wybierz walutę:</span>
-        <select className="form__currencyField">
+        <select
+          className="form__currencyField"
+          value={targetCurrencyCode}
+          onChange={({ target }) => onCurrencyChange(target.value)}
+        >
           {currencies.map((currency) => (
-            <option key={currency.id}>
+            <option key={currency.id} value={currency.code}>
               {currency.symbol} {currency.code}
             </option>
           ))}
