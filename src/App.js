@@ -79,6 +79,7 @@ function App() {
 
   const handleReset = () => {
     setAmountPLN("");
+    setTargetCurrencyCode("USD");
   };
 
   return (

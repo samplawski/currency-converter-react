@@ -12,7 +12,7 @@ const Output = ({ currencies, calculatedOutput, targetCurrencyCode }) => {
   if (isInitial) {
     resultMessage = "Wybierz walutę i wpisz kwotę do wymiany.";
   } else {
-    resultMessage = `${calculatedOutput} ${symbol} "(${targetCurrencyCode})"`;
+    resultMessage = `${calculatedOutput} ${symbol} (${targetCurrencyCode})`;
   }
   return (
     <label>
