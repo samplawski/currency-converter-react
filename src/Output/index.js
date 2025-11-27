@@ -15,9 +15,9 @@ const Output = ({ currencies, calculatedOutput, targetCurrencyCode }) => {
     resultMessage = `${calculatedOutput} ${symbol} (${targetCurrencyCode})`;
   }
   return (
-    <label>
+    <span>
       Po przewalutowaniu dostaniesz: <strong>{resultMessage}</strong>
-    </label>
+    </span>
   );
 };
 

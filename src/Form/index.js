@@ -10,12 +10,14 @@ const Form = ({
   targetCurrencyCode,
   onCurrencyChange,
   onReset,
+  onFormSubmit,
 }) => {
-  const onFormSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+    onFormSubmit();
   };
   return (
-    <form className="form" onSubmit={onFormSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <Input
         currencies={currencies}
         amountPLN={amountPLN}

@@ -44,6 +44,8 @@ function App() {
 
   const [amountPLN, setAmountPLN] = useState("");
 
+  const [confirmedAmountPLN, setConfirmedAmountPLN] = useState("");
+
   const [targetCurrencyCode, setTargetCurrencyCode] = useState("USD");
 
   const handleAmountChange = (newAmount) => {
@@ -52,6 +54,10 @@ function App() {
 
   const handleCurrencyChange = (newCurrencyCode) => {
     setTargetCurrencyCode(newCurrencyCode);
+  };
+
+  const handleFormSubmit = () => {
+    setConfirmedAmountPLN(amountPLN);
   };
 
   const getRate = (code) => {
@@ -75,10 +81,11 @@ function App() {
     }
   };
 
-  const calculatedOutput = countOutput(amountPLN, targetCurrencyCode);
+  const calculatedOutput = countOutput(confirmedAmountPLN, targetCurrencyCode);
 
   const handleReset = () => {
     setAmountPLN("");
+    setConfirmedAmountPLN("");
     setTargetCurrencyCode("USD");
   };
 
@@ -97,6 +104,7 @@ function App() {
           onCurrencyChange={handleCurrencyChange}
           targetCurrencyCode={targetCurrencyCode}
           onReset={handleReset}
+          onFormSubmit={handleFormSubmit}
         />
       </Converter>
 

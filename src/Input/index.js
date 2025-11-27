@@ -15,6 +15,8 @@ const Input = ({
         <span className="form__labelText">Wybierz walutę:</span>
         <select
           className="form__currencyField"
+          id="targetCurrency"
+          name="targetCurrency"
           value={targetCurrencyCode}
           onChange={({ target }) => onCurrencyChange(target.value)}
         >
@@ -34,6 +36,8 @@ const Input = ({
           onChange={({ target }) => onAmountChange(target.value)}
           value={amountPLN}
           className="form__currencyField"
+          id="amountPLN"
+          name="amountPLN"
           type="number"
           required
           min="0"
