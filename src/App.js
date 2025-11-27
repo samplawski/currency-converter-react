@@ -68,12 +68,14 @@ function App() {
     const amount = parseFloat(amountPLN);
     if (isNaN(amount) || amount <= 0) return 0;
     const convertedValue = amount / rate;
-    return convertedValue.toFixed(2);
+    if (convertedValue < 0.01) {
+      return convertedValue.toFixed(8);
+    } else {
+      return convertedValue.toFixed(2);
+    }
   };
 
   const calculatedOutput = countOutput(amountPLN, targetCurrencyCode);
-
-
 
   const handleReset = () => {
     setAmountPLN("");
