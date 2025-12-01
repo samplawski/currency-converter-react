@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Body from "./Body";
-import TableContainer from "./TableContainer";
 import Table from "./Table";
 import Converter from "./Converter";
 import Form from "./Form";
@@ -91,9 +90,7 @@ function App() {
 
   return (
     <Body>
-      <TableContainer>
-        <Table currencies={currencies} />
-      </TableContainer>
+      <Table currencies={currencies} />
 
       <Converter>
         <Form
