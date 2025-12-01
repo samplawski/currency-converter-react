@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Body from "./Body";
 import Table from "./Table";
 import Converter from "./Converter";
-import Form from "./Form";
 import Footer from "./Footer";
 
 function App() {
@@ -92,8 +91,7 @@ function App() {
     <Body>
       <Table currencies={currencies} />
 
-      <Converter>
-        <Form
+      <Converter
           currencies={currencies}
           amountPLN={amountPLN}
           onAmountChange={handleAmountChange}
@@ -103,7 +101,6 @@ function App() {
           onReset={handleReset}
           onFormSubmit={handleFormSubmit}
         />
-      </Converter>
 
       <Footer />
     </Body>

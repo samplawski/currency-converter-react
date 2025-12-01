@@ -1,6 +1,6 @@
 import "./style.css";
 
-const Input = ({
+const CurrencyInputArea = ({
   currencies,
   amountPLN,
   onAmountChange,
@@ -49,4 +49,4 @@ const Input = ({
   </fieldset>
 );
 
-export default Input;
+export default CurrencyInputArea;
