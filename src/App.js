@@ -89,9 +89,10 @@ function App() {
 
   return (
     <Body>
-      <Table currencies={currencies} />
+      <div className="mainWrapper">
+        <Table currencies={currencies} />
 
-      <Converter
+        <Converter
           currencies={currencies}
           amountPLN={amountPLN}
           onAmountChange={handleAmountChange}
@@ -102,7 +103,8 @@ function App() {
           onFormSubmit={handleFormSubmit}
         />
 
-      <Footer />
+        <Footer />
+      </div>
     </Body>
   );
 }

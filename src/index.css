@@ -7,3 +7,8 @@ html {
 ::before {
     box-sizing: inherit;
 }
+
+.mainWrapper {
+    max-width: 1200px;
+    margin: 0 auto;;
+}
