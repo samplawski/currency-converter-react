@@ -1,14 +1,14 @@
-.table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
 .table-wrapper {
   max-width: 90%;
   overflow-x: auto;
   background-color: hsl(197, 100%, 99%);
   margin: 20px auto 10px;
   border-radius: 6px;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
 .table__row {
