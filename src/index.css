@@ -12,14 +12,3 @@ html {
     max-width: 1200px;
     margin: 0 auto;;
 }
-
-#root {
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100hw;
-    background-image: url("https://ocdn.eu/pulscms-transforms/1/2C2k9kpTURBXy8wNGQ3MTQ0OGU4OWM1MTY1MjM0NDUxYTdjOTA0ZDdmZi5qcGeSlQMAzIzNB4DNBDiTBc0DmM0BzN4AAqEwBaExAQ");
-    background-size: cover;
-    background-position: center;
-}
