@@ -8,14 +8,9 @@ html {
   box-sizing: inherit;
 }
 
-.mainWrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 body {
   font-family: "Roboto", sans-serif;
   background-image: url("https://ocdn.eu/pulscms-transforms/1/2C2k9kpTURBXy8wNGQ3MTQ0OGU4OWM1MTY1MjM0NDUxYTdjOTA0ZDdmZi5qcGeSlQMAzIzNB4DNBDiTBc0DmM0BzN4AAqEwBaExAQ");
   background-size: 100vw 100vh;
-  font-size: 20px;
+  font-size: 16px;
 }
