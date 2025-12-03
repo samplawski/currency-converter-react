@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import {currencies} from "./currencies";
+import { currencies } from "./currencies";
 import Body from "./Body";
 import Table from "./Table";
 import Converter from "./Converter";
 import Footer from "./Footer";
 
 function App() {
-
-
   const [amountPLN, setAmountPLN] = useState("");
 
   const [confirmedAmountPLN, setConfirmedAmountPLN] = useState("");
@@ -57,22 +55,20 @@ function App() {
 
   return (
     <Body>
-      <div className="mainWrapper">
-        <Table currencies={currencies} />
+      <Table currencies={currencies} />
 
-        <Converter
-          currencies={currencies}
-          amountPLN={amountPLN}
-          onAmountChange={handleAmountChange}
-          calculatedOutput={calculatedOutput}
-          onCurrencyChange={handleCurrencyChange}
-          targetCurrencyCode={targetCurrencyCode}
-          onReset={handleReset}
-          onFormSubmit={handleFormSubmit}
-        />
+      <Converter
+        currencies={currencies}
+        amountPLN={amountPLN}
+        onAmountChange={handleAmountChange}
+        calculatedOutput={calculatedOutput}
+        onCurrencyChange={handleCurrencyChange}
+        targetCurrencyCode={targetCurrencyCode}
+        onReset={handleReset}
+        onFormSubmit={handleFormSubmit}
+      />
 
-        <Footer />
-      </div>
+      <Footer />
     </Body>
   );
 }
