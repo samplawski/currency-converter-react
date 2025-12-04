@@ -53,22 +53,27 @@ function App() {
     setTargetCurrencyCode("USD");
   };
 
+  const myDate = new Date();
+        console.log(myDate.toLocaleString());
+
   return (
     <Body>
-      <Table currencies={currencies} />
+      <div className="mainContentWrapper">
+        <Table currencies={currencies} />
 
-      <Converter
-        currencies={currencies}
-        amountPLN={amountPLN}
-        onAmountChange={handleAmountChange}
-        calculatedOutput={calculatedOutput}
-        onCurrencyChange={handleCurrencyChange}
-        targetCurrencyCode={targetCurrencyCode}
-        onReset={handleReset}
-        onFormSubmit={handleFormSubmit}
-      />
+        <Converter
+          currencies={currencies}
+          amountPLN={amountPLN}
+          onAmountChange={handleAmountChange}
+          calculatedOutput={calculatedOutput}
+          onCurrencyChange={handleCurrencyChange}
+          targetCurrencyCode={targetCurrencyCode}
+          onReset={handleReset}
+          onFormSubmit={handleFormSubmit}
+        />
 
-      <Footer />
+        <Footer />
+      </div>
     </Body>
   );
 }
