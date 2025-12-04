@@ -1,6 +1,6 @@
 import "./style.css";
 
-import Buttons from "../Buttons/inbex.js";
+import Buttons from "../Buttons/index.js";
 import Output from "../Output/index.js";
 import CurrencyInputArea from "../CurrencyInputArea/index.js";
 
