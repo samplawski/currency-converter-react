@@ -1,0 +1,6 @@
+.clock {
+ display: flex;
+ justify-content: flex-end;
+ padding: 0 10px;
+ margin: 10px 0 0;
+}

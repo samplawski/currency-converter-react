@@ -1,3 +1,5 @@
+import Clock from "../Clock/index.js";
+
 import "./style.css";
 
 const formatCurrencyRate = (rate) => {
@@ -11,6 +13,7 @@ const formatCurrencyRate = (rate) => {
 
 const Table = ({ currencies }) => (
   <div className="table-wrapper">
+    <Clock/>
     <table className="table">
       <caption className="table__caption">Waluty w kalkulatorze.</caption>
       <thead>
