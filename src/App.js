@@ -53,9 +53,6 @@ function App() {
     setTargetCurrencyCode("USD");
   };
 
-  const myDate = new Date();
-        console.log(myDate.toLocaleString());
-
   return (
     <Body>
       <div className="mainContentWrapper">

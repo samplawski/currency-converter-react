@@ -4,9 +4,15 @@ import style from "./style.css";
 const Clock = () => {
   const [date, setDate] = useState(new Date());
 
-useEffect{() => {
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
 
-}};
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   const formDate = {
     weekday: "long",
@@ -21,12 +27,14 @@ useEffect{() => {
     second: "2-digit",
   };
 
-  const formattedDate = date.toLocaleDateString(formDate);
-  const formattedTime = date.toLocaleDateString(formTime);
-
-
-
-  <p className="clock">Dzisiaj jest {formattedDate} roku, {formattedTime}</p>;
+  return (
+    <p className="clock">
+      <span className="clock__value">
+        Dzisiaj jest {date.toLocaleDateString("pl-PL", formDate)} roku, 
+        godzina:{" "} {date.toLocaleTimeString("pl-PL", formTime)}.
+      </span>
+    </p>
+  );
 };
 
 export default Clock;
