@@ -1,15 +1,15 @@
-import "./style.css";
+import { StyledClock, ClockValue } from "./styled.js";
 import { useCurrentDate } from "./useCurrentDate";
 
 const Clock = () => {
   const { foramttedDate, formattedTime } = useCurrentDate();
 
   return (
-    <p className="clock">
-      <span className="clock__value">
+    <StyledClock>
+      <ClockValue>
         Dzisiaj jest {foramttedDate} roku, godzina: {formattedTime}.
-      </span>
-    </p>
+      </ClockValue>
+    </StyledClock>
   );
 };
 
