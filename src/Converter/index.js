@@ -1,4 +1,4 @@
-import "./style.css";
+import { StyledConverter } from "./styled.js";
 
 import Buttons from "../Buttons/index.js";
 import Output from "../Output/index.js";
@@ -19,7 +19,7 @@ const Converter = ({
     onFormSubmit();
   };
   return (
-    <form className="converter" onSubmit={handleSubmit}>
+    <StyledConverter onSubmit={handleSubmit}>
       <CurrencyInputArea
         currencies={currencies}
         amountPLN={amountPLN}
@@ -33,7 +33,7 @@ const Converter = ({
         targetCurrencyCode={targetCurrencyCode}
         currencies={currencies}
       />
-    </form>
+    </StyledConverter>
   );
 };
 
