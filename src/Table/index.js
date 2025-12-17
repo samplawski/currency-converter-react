@@ -1,6 +1,13 @@
 import Clock from "../Clock/index.js";
 
-import "./style.css";
+import {
+  Wrapper,
+  StyledTable,
+  Row,
+  Header,
+  Cell,
+  StyledCaption,
+} from "./styled.js";
 
 const formatCurrencyRate = (rate) => {
   // 1. Ustawienie lokalizacji na polską (pl-PL)
@@ -12,45 +19,33 @@ const formatCurrencyRate = (rate) => {
 };
 
 const Table = ({ currencies }) => (
-  <div className="table-wrapper">
-    <Clock/>
-    <table className="table">
-      <caption className="table__caption">Waluty w kalkulatorze.</caption>
+  <Wrapper>
+    <Clock />
+    <StyledTable>
+      <StyledCaption>Waluty w kalkulatorze.</StyledCaption>
       <thead>
-        <tr className="table__row">
-          <th className="table__header" scope="col">
-            Nazwa waluty (angielska)
-          </th>
-          <th className="table__header" scope="col">
-            Nazwa waluty (polska)
-          </th>
-          <th className="table__header" scope="col">
-            Oznaczenie międzynarodowe
-          </th>
-          <th className="table__header" scope="col">
-            Symbol
-          </th>
-          <th className="table__header" scope="col">
-            Aktualny kurs
-          </th>
-        </tr>
+        <Row>
+          <Header scope="col">Nazwa waluty (angielska)</Header>
+          <Header scope="col">Nazwa waluty (polska)</Header>
+          <Header scope="col">Oznaczenie międzynarodowe</Header>
+          <Header scope="col">Symbol</Header>
+          <Header scope="col">Aktualny kurs</Header>
+        </Row>
       </thead>
 
       <tbody>
         {currencies.map((currency) => (
-          <tr key={currency.id} className="table__row">
-            <th className="table__header" scope="row">
-              {currency.name}
-            </th>
-            <td className="table__cell">{currency.namePL}</td>
-            <td className="table__cell">{currency.code}</td>
-            <td className="table__cell">{currency.symbol}</td>
-            <td className="table__cell">{formatCurrencyRate(currency.rate.toFixed(2))} zł</td>
-          </tr>
+          <Row key={currency.id}>
+            <Header scope="row">{currency.name}</Header>
+            <Cell>{currency.namePL}</Cell>
+            <Cell>{currency.code}</Cell>
+            <Cell>{currency.symbol}</Cell>
+            <Cell>{formatCurrencyRate(currency.rate.toFixed(2))} zł</Cell>
+          </Row>
         ))}
       </tbody>
-    </table>
-  </div>
+    </StyledTable>
+  </Wrapper>
 );
 
 export default Table;
