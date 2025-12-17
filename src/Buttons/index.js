@@ -12,7 +12,7 @@ const Buttons = ({ onReset }) => (
 
     <Button 
        onClick={onReset} 
-       type="Button"
+       type="button"
        value="Wyczyść" 
        title="Wyczyść"
       >
