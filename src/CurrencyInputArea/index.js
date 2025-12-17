@@ -1,4 +1,10 @@
-import "./style.css";
+import {
+  Fieldset,
+  Legend,
+  LabelText,
+  SelectField,
+  InputField,
+} from "./styled.js";
 
 const CurrencyInputArea = ({
   currencies,
@@ -7,14 +13,13 @@ const CurrencyInputArea = ({
   onCurrencyChange,
   targetCurrencyCode,
 }) => (
-  <fieldset className="form__fieldset">
-    <legend className="form__legend">Kalkulator walut</legend>
+  <Fieldset>
+    <Legend>Kalkulator walut</Legend>
 
     <p>
       <label>
-        <span className="form__labelText">Wybierz walutę:</span>
-        <select
-          className="form__currencyField"
+        <LabelText>Wybierz walutę:</LabelText>
+        <SelectField
           id="targetCurrency"
           name="targetCurrency"
           value={targetCurrencyCode}
@@ -25,17 +30,16 @@ const CurrencyInputArea = ({
               {currency.symbol} {currency.code}
             </option>
           ))}
-        </select>
+        </SelectField>
       </label>
     </p>
 
     <p>
       <label>
-        <span className="form__labelText">Ile PLN chcesz wymienić:</span>
-        <input
+        <LabelText>Ile PLN chcesz wymienić:</LabelText>
+        <InputField
           onChange={({ target }) => onAmountChange(target.value)}
           value={amountPLN}
-          className="form__currencyField"
           id="amountPLN"
           name="amountPLN"
           type="number"
@@ -46,7 +50,7 @@ const CurrencyInputArea = ({
         />
       </label>
     </p>
-  </fieldset>
+  </Fieldset>
 );
 
 export default CurrencyInputArea;
