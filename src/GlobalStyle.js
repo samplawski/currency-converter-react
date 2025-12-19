@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
 html {
   box-sizing: border-box;
 }
@@ -14,8 +17,4 @@ body {
   background-size: 100vw 100vh;
   font-size: 16px;
 }
-
-.mainContentWrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+`;

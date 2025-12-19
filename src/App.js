@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { currencies } from "./currencies";
-import Body from "./Body";
+import StyledBody from "./Body";
 import Table from "./Table";
 import Converter from "./Converter";
 import Footer from "./Footer";
@@ -54,24 +54,22 @@ function App() {
   };
 
   return (
-    <Body>
-      <div className="mainContentWrapper">
-        <Table currencies={currencies} />
+    <StyledBody>
+      <Table currencies={currencies} />
 
-        <Converter
-          currencies={currencies}
-          amountPLN={amountPLN}
-          onAmountChange={handleAmountChange}
-          calculatedOutput={calculatedOutput}
-          onCurrencyChange={handleCurrencyChange}
-          targetCurrencyCode={targetCurrencyCode}
-          onReset={handleReset}
-          onFormSubmit={handleFormSubmit}
-        />
+      <Converter
+        currencies={currencies}
+        amountPLN={amountPLN}
+        onAmountChange={handleAmountChange}
+        calculatedOutput={calculatedOutput}
+        onCurrencyChange={handleCurrencyChange}
+        targetCurrencyCode={targetCurrencyCode}
+        onReset={handleReset}
+        onFormSubmit={handleFormSubmit}
+      />
 
-        <Footer />
-      </div>
-    </Body>
+      <Footer />
+    </StyledBody>
   );
 }
 
