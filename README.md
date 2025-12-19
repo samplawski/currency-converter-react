@@ -17,29 +17,25 @@ You can try it under this [link](https://samplawski.github.io/currency-converter
 7. Contact
 
 ## 1. Short Description
-This project is a refactored and modernized version of the original vanilla JavaScript currency converter. It is now built using React components and allows users to quickly convert PLN (Polish złoty) to the three major currencies: USD (United States dollar), EUR (Euro), and GBP (British pound sterling).
+This project is a complete refactor of a vanilla JavaScript application into a modern React environment. The application allows users to convert PLN (Polish Złoty) into various currencies (USD, EUR, GBP, BTC). 
 
-The application is structured into components for clear separation of concerns, utilizing React's state management for dynamic calculations and UI updates.
+The main focus of this refactor was to implement **Clean Code** principles, separation of concerns, and a professional styling architecture using CSS-in-JS.
 
 ## 2. Features
-
-- Component-Based Architecture (React) for modular, reusable code.
-- Convert PLN to USD, EUR, and GBP based on hardcoded current exchange rates (easy to upgrade to API fetching).
-- Simple and intuitive user interface.
-- Responsive Design that works on desktop and mobile devices.
-- Deployment via GitHub Pages using gh-pages.
-- links in the footer: 
-    - to the project's GitHub repository
-    - to contact the creator via email
+- **Real-time Calculation:** Dynamic currency conversion based on user input.
+- **Custom Hooks:** Logic for time management is extracted into a reusable `useCurrentDate` hook.
+- **Advanced Styling:** Full implementation of **Styled Components** with a centralized **Theme**.
+- **Responsive Web Design (RWD):** Optimized for both desktop and mobile devices using media queries integrated into the theme.
+- **Global Styles:** Consistent base styles managed through React's `GlobalStyle`.
+- **Form Management:** Easy-to-use interface with reset functionality.
 
 ## 3. Technologies Used
-
-The converter is built with the use of: 
-- React 19 (Component library for the UI).
-- JavaScript (ES6+)
-- HTML/CSS (Used within React components)
-- BEM convention
-- npm / Yarn (For package management).
+- **React 19** (Functional components, Hooks: `useState`, `useEffect`)
+- **Styled Components** (CSS-in-JS for modular and dynamic styling)
+- **JavaScript (ES6+)**
+- **Intl API** (For professional date and number formatting)
+- **HTML5** (Semantic structure)
+- **npm** (Package management)
 
 The following external libraries are used in this project:
 
@@ -47,7 +43,14 @@ The following external libraries are used in this project:
 - Google Fonts - for the "Roboto" font used throughout the page
 - gh-pages - for simplified deployment to GitHub Pages.
 
-## 4. Setup
+## 4. Key Project Structure Improvements
+During the refactor, the following advanced React patterns were implemented:
+- **ThemeProvider:** Centralized color palette and breakpoints in `theme.js`.
+- **GlobalStyle:** Removed `index.css` in favor of `createGlobalStyle`.
+- **Logic Extraction:** Separated business logic (conversion, rate fetching) from the presentation layer (JSX).
+- **Atomic Components:** The app is divided into small, specialized components like `Table`, `Converter`, `Clock`, and `Footer`.
+
+## 5. Setup
 
 To run this application locally, follow these steps:
 
@@ -58,18 +61,18 @@ To run this application locally, follow these steps:
 - The application will open automatically in your browser (usually at http://localhost:3000/currency-converter-react).
 
 
-## 5. How to use
+## 6. How to use
 1. Visit the converter page.
 2. Select the currency you want to convert to from the dropdown list.
 3. Enter the amount of PLN you want to exchange in the input field.
 4. Click the "Przelicz" button to see the converted amount.
 5. The "Wyczyść" button resets the form
+6. View the current exchange rates in the table above the converter.
 
-## 6. Status and Contributing
+## 7. Status and Contributing
+The project was created by Tomasz Sampławski. The core styling and logic refactor is complete. Future updates may include fetching real-time data from an external API.
 
-The project was created by Tomasz Sampławski. It is currently completed but may be updated in the future. Contributions are welcome and appreciated! 
+Contributions, issues, and feature requests are welcome!
 
-Feel free to use it for your own projects or modify it to suit your needs.
-## 7. Contact
-
+## 8. Contact
 If you want to contact me you can reach me at tsamplawski@gmail.com.
