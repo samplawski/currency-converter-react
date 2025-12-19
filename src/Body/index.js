@@ -1,7 +1,9 @@
-const Body = ({ children }) => (
-    <main >
-        {children}
-    </main>
-);
+import styled from "styled-components";
 
-export default Body;
+export const StyledBody = styled.main`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+`;
+
+export default StyledBody;
