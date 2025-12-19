@@ -8,5 +8,5 @@ export const StyledClock = styled.p`
 `;
 
 export const ClockValue = styled.span`
-  color: hsl(0, 20%, 30%);
+  color: ${({ theme }) => theme.color.clockText};
 `;

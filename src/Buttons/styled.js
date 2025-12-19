@@ -8,14 +8,14 @@ export const Button = styled.button`
   margin-bottom: 14px;
   border: none;
   border-radius: 3px;
-  background-color: hsl(39, 51%, 68%);
+  background-color: ${({ theme }) => theme.color.buttonBackground};
   padding: 4px;
 
   &:hover {
-    background-color: hsl(39, 51%, 48%);
+    filter: brightness(80%);
   }
 
   &:active {
-    background-color: hsl(39, 51%, 38%);
+    filter: brightness(70%);
   }
 `;

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const StyledFooter = styled.footer`
   max-width: 90%;
   overflow-x: auto;
-  background-color: hsl(37, 74%, 90%);
+  background-color: ${({ theme }) => theme.color.footerBackground};
   margin: 170px auto 10px;
   border-radius: 6px;
   padding: 10px 20px;
@@ -17,11 +17,11 @@ export const StyledFooter = styled.footer`
 `;
 
 export const Link = styled.a`
-  color: hsl(182, 25%, 50%);
+  color: ${({ theme }) => theme.color.footerLink};
   text-decoration: none;
 
   &:hover {
-    color: hsl(182, 25%, 35%);
+    filter: brightness(80%);
     border-bottom: 1px solid;
     outline: none;
   }

@@ -6,7 +6,7 @@ export const Fieldset = styled.fieldset`
 
 export const Legend = styled.legend`
   border-radius: 3px;
-  background-color: hsl(39, 51%, 68%);
+  background-color: ${({ theme }) => theme.color.legendBackground};
   padding: 4px 8px;
 `;
 
@@ -18,14 +18,14 @@ export const LabelText = styled.span`
 `;
 
 const CommonFieldStyles = css`
-  border: 2px solid #ccc;
+  border: 2px solid ${({ theme }) => theme.color.borderColor};
   padding: 6px;
   width: 100%;
   max-width: 500px;
   border-radius: 3px;
   margin-left: 5px;
 
-  @media (max-width: 848px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     margin-left: 0px;
   }
 `;

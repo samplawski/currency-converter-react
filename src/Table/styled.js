@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   max-width: 90%;
   overflow-x: auto;
-  background-color: hsl(197, 100%, 99%);
+  background-color: ${({ theme }) => theme.color.tableBackground};
   margin: 20px auto 10px;
   border-radius: 6px;
 `;
@@ -14,22 +14,22 @@ export const StyledTable = styled.table`
 `;
 
 export const Row = styled.tr`
-  background-color: hsl(0, 24%, 94%);
+  background-color: ${({ theme }) => theme.color.tableRow};
 
   :hover {
-    background-color: hsl(0, 21%, 89%);
+    background-color: ${({ theme }) => theme.color.rowHover};
   }
 `;
 
 export const Header = styled.th`
   border-style: groove;
-  background-color: hsl(0, 20%, 79%);
+  background-color: ${({ theme }) => theme.color.tableHeader};
 `;
 
 export const Cell = styled.td`
   border-style: solid;
   border-width: 2px;
-  border-color: hsl(0, 0%, 67%);
+  border-color: ${({ theme }) => theme.color.cellBorder};
   text-align: center;
 `;
 
