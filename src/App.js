@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { currencies } from "./currencies";
 import StyledBody from "./Body";
 import Table from "./Table";
@@ -52,6 +52,22 @@ function App() {
     setConfirmedAmountPLN("");
     setTargetCurrencyCode("USD");
   };
+
+  useEffect(() => {
+    fetch(`${process.env.PUBLIC_URL}/rates.json`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Problem z pobraniem pliku.");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Błąd:", error);
+      });
+  }, []);
 
   return (
     <StyledBody>
