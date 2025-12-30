@@ -37,7 +37,7 @@ function App() {
     const fetchRates = async () => {
       try {
         const response = await axios.get(
-          `${process.env.PUBLIC_URL}/rates.json`
+          `https://api.currencyapi.com/v3/latest?apikey=cur_live_DegcTyHcxMdZeycj1wbLpgcmdBhiR3Y2qzgTkkQ9&currencies=&base_currency=PLN`
         );
         setRates({
           data: response.data.data,
