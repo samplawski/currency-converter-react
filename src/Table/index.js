@@ -18,11 +18,11 @@ const formatCurrencyRate = (rate) => {
   }).format(rate);
 };
 
-const Table = ({ currencies }) => (
+const Table = ({ currencies, ratesDate }) => (
   <Wrapper>
-    <Clock />
+    <Clock ratesDate={ratesDate} />
     <StyledTable>
-      <StyledCaption>Waluty w kalkulatorze.</StyledCaption>
+      <StyledCaption>Popularne waluty.</StyledCaption>
       <thead>
         <Row>
           <Header scope="col">Nazwa waluty (angielska)</Header>

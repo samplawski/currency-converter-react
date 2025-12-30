@@ -63,7 +63,7 @@ function App() {
   const getRate = (code) => {
     if (rates.data && rates.data[code]) {
       const valueFromApi = rates.data[code].value;
-      return parseFloat((1 / valueFromApi).toFixed(2));
+      return 1 / valueFromApi;
     }
     const currency = currencies.find((currency) => currency.code === code);
     if (!currency) {
@@ -79,7 +79,7 @@ function App() {
     if (isNaN(amount) || amount <= 0) return 0;
     const convertedValue = amount / rate;
     if (convertedValue < 0.01) {
-      return convertedValue.toFixed(8);
+      return convertedValue.toFixed(20);
     } else {
       return convertedValue.toFixed(2);
     }
@@ -104,7 +104,7 @@ function App() {
 
   return (
     <StyledBody>
-      <Table currencies={tableCurrencies} />
+      <Table currencies={tableCurrencies} ratesDate={rates.date} />
 
       <Converter
         currencies={tableCurrencies}

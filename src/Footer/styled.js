@@ -4,7 +4,7 @@ export const StyledFooter = styled.footer`
   max-width: 90%;
   overflow-x: auto;
   background-color: ${({ theme }) => theme.color.footerBackground};
-  margin: 170px auto 10px;
+  margin: 120px auto 10px;
   border-radius: 6px;
   padding: 10px 20px;
   display: flex;
