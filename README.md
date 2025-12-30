@@ -1,5 +1,5 @@
 # Currency converter
-A simple currency conversion application built with modern React.
+A simple currency conversion application built with React.js. The application allows users to convert Polish Zloty (PLN) into various world currencies using real-time exchange rates fetched from an external API.
 
 You can try it under this [link](https://samplawski.github.io/currency-converter-react/).
 
@@ -22,16 +22,20 @@ This project is a complete refactor of a vanilla JavaScript application into a m
 The main focus of this refactor was to implement **Clean Code** principles, separation of concerns, and a professional styling architecture using CSS-in-JS.
 
 ## 2. Features
-- **Real-time Calculation:** Dynamic currency conversion based on user input.
-- **Custom Hooks:** Logic for time management is extracted into a reusable `useCurrentDate` hook.
-- **Advanced Styling:** Full implementation of **Styled Components** with a centralized **Theme**.
-- **Responsive Web Design (RWD):** Optimized for both desktop and mobile devices using media queries integrated into the theme.
-- **Global Styles:** Consistent base styles managed through React's `GlobalStyle`.
-- **Form Management:** Easy-to-use interface with reset functionality.
+- Real-time Data: Fetches the latest exchange rates from a server using Axios.
+- Precision Engine: Specialized rounding logic that ensures the calculator results match the visual rates shown in the table (eliminating common float errors).
+- Dynamic Currency Table: Displays a list of popular currencies with their current rates.
+- Support for Exotic Currencies: Handles extremely low-value currencies (e.g., BTC, ZWL) with high decimal precision to prevent Infinity errors.
+- Modern UI/UX:
+    - Responsive design using Styled-components.
+    - Loading state with a 1.5s delay to ensure smooth transitions.
+    - Error handling for network issues or failed API requests.
+    - Real-time clock with the date of the last API update.
 
 ## 3. Technologies Used
-- **React 19** (Functional components, Hooks: `useState`, `useEffect`)
-- **Styled Components** (CSS-in-JS for modular and dynamic styling)
+- **React 19** (Functional components, Hooks: `useState`, `useEffect`, Custom Hooks )
+- **Styled Components** (CSS-in-JS for modular and dynamic styling, Theming)
+- **Axios (API requests)**
 - **JavaScript (ES6+)**
 - **Intl API** (For professional date and number formatting)
 - **HTML5** (Semantic structure)
