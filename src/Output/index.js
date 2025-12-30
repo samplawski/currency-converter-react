@@ -4,7 +4,7 @@ const getCurrencySymbol = (currencies, code) => {
 };
 
 const Output = ({ currencies, calculatedOutput, targetCurrencyCode }) => {
-  const symbol = getCurrencySymbol(currencies, targetCurrencyCode);
+  const symbol = getCurrencySymbol(currencies, targetCurrencyCode) || "";
 
   const isInitial = calculatedOutput === "0" || calculatedOutput === 0.0;
   let resultMessage;

@@ -12,7 +12,7 @@ export const StyledClock = styled.div`
 `;
 
 export const ClockValue = styled.span`
-  color: ${({ theme }) => theme.color.clockText};
+  color: ${({ theme }) => theme.color.text};
 `;
 
 export const ApiFetchDate = styled.div`

@@ -5,6 +5,7 @@ import StyledBody from "./Body";
 import Table from "./Table";
 import Converter from "./Converter";
 import Footer from "./Footer";
+import { StatusWrapper, LoadingStatus, ErrorStatus } from "./styledStatus.js";
 
 function App() {
   const [amountPLN, setAmountPLN] = useState("");
@@ -27,7 +28,7 @@ function App() {
 
   const [rates, setRates] = useState({
     data: null,
-    loading: false,
+    loading: true,
     error: null,
     date: null,
   });
@@ -35,10 +36,6 @@ function App() {
   useEffect(() => {
     const fetchRates = async () => {
       try {
-        setRates((previousRatesData) => ({
-          ...previousRatesData,
-          loading: true,
-        }));
         const response = await axios.get(
           `${process.env.PUBLIC_URL}/rates.json`
         );
@@ -50,27 +47,32 @@ function App() {
         });
         console.log("Dane pobrane Axiosem:", response.data);
       } catch (error) {
+        setRates({
+          data: null,
+          loading: false,
+          error: true,
+          date: null,
+        });
         console.error("Błąd pobierania:", error.message);
       }
     };
 
     const timeoutId = setTimeout(fetchRates, 1500);
-
     return () => clearTimeout(timeoutId);
-    fetchRates();
   }, []);
 
   const getRate = (code) => {
     if (rates.data && rates.data[code]) {
       const valueFromApi = rates.data[code].value;
-      return 1 / valueFromApi;
+      const rawRate = 1 / valueFromApi;
+      const roundedRate = parseFloat(rawRate.toFixed(2));
+      return roundedRate > 0 ? roundedRate : rawRate;
     }
     const currency = currencies.find((currency) => currency.code === code);
     if (!currency) {
       console.error(`Nie znaleziono waluty o kodzie: ${code}`);
-      return currency.rate;
+      return currency ? currency.rate : 1.0;
     }
-    return 1.0;
   };
 
   const countOutput = (amountPLN, targetCurrencyCode) => {
@@ -87,10 +89,17 @@ function App() {
 
   const tableCurrencies = currencies.map((currency) => {
     const rateFromApi = rates.data ? rates.data[currency.code]?.value : null;
+    let rate = currency.rate;
+
+    if (rateFromApi) {
+      const rawRate = 1 / rateFromApi;
+      const roundedRate = parseFloat(rawRate.toFixed(2));
+      rate = roundedRate > 0 ? roundedRate : parseFloat(rawRate.toFixed(6));
+    }
+
     return {
       ...currency,
-      // Dla tabeli: ile PLN za 1 walutę (1 / 0.23 = 4.34)
-      rate: rateFromApi ? (1 / rateFromApi).toFixed(2) : currency.rate,
+      rate: rate,
     };
   });
 
@@ -104,20 +113,36 @@ function App() {
 
   return (
     <StyledBody>
-      <Table currencies={tableCurrencies} ratesDate={rates.date} />
-
-      <Converter
-        currencies={tableCurrencies}
-        amountPLN={amountPLN}
-        onAmountChange={handleAmountChange}
-        calculatedOutput={calculatedOutput}
-        onCurrencyChange={handleCurrencyChange}
-        targetCurrencyCode={targetCurrencyCode}
-        onReset={handleReset}
-        onFormSubmit={handleFormSubmit}
-        rates={rates.data}
-      />
-
+      {rates.loading ? (
+        <StatusWrapper>
+          <LoadingStatus>
+            Moment... pobieram aktualne kursy walut z serwera. ⌚
+          </LoadingStatus>
+        </StatusWrapper>
+      ) : rates.error ? (
+        <StatusWrapper>
+          <ErrorStatus>
+            Hmm... Coś poszło nie tak 🤯 Sprawdź, czy masz połączenie z
+            internetem. Jeśli masz... to wygląda na to, że to nasza wina. Możesz
+            spróbować później? 😜
+          </ErrorStatus>
+        </StatusWrapper>
+      ) : (
+        <>
+          <Table currencies={tableCurrencies} ratesDate={rates.date} />
+          <Converter
+            currencies={tableCurrencies}
+            amountPLN={amountPLN}
+            onAmountChange={handleAmountChange}
+            calculatedOutput={calculatedOutput}
+            onCurrencyChange={handleCurrencyChange}
+            targetCurrencyCode={targetCurrencyCode}
+            onReset={handleReset}
+            onFormSubmit={handleFormSubmit}
+            rates={rates.data}
+          />
+        </>
+      )}
       <Footer />
     </StyledBody>
   );

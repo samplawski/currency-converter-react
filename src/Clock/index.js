@@ -16,41 +16,29 @@ const formTime = {
 
 const Clock = ({ ratesDate }) => {
   const { date } = useCurrentDate();
+  const formattedCurrentDate = date.toLocaleDateString("pl-PL", formDate);
+  const formattedCurrentTime = date.toLocaleTimeString("pl-PL", formTime);
 
-  const foramttedDate = date.toLocaleDateString("pl-PL", formDate);
-  const formattedTime = date.toLocaleTimeString("pl-PL", formTime);
-
-  const apiDateObject = ratesDate ? new Date(ratesDate) : null;
-
-  const formattedApiDate = apiDateObject
-    ? apiDateObject.toLocaleDateString("pl-PL", formDate)
-    : null;
-
-  const formattedApiTime = apiDateObject
-    ? apiDateObject.toLocaleTimeString("pl-PL", {
-        hour: "2-digit",
-        minute: "2-digit",
-      })
-    : null;
+  const apiDateObject = new Date(ratesDate);
+  const formattedApiDate = apiDateObject.toLocaleDateString("pl-PL", formDate);
+  const formattedApiTime = apiDateObject.toLocaleTimeString("pl-PL", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   return (
     <Wrapper>
       <StyledClock>
         <ClockValue>
-          Dzisiaj jest {foramttedDate} roku, godzina: {formattedTime}.
+          Dzisiaj jest {formattedCurrentDate} roku, godzina:{" "}
+          {formattedCurrentTime}.
         </ClockValue>
       </StyledClock>
 
       <ApiFetchDate>
-        {apiDateObject ? (
-          <>
-            Kursy walut pobierane są z serwisu zewnętrznego. Ostatnia&nbsp;
-            <strong>aktualizacja</strong>: {formattedApiDate} roku, o godzinie:{" "}
-            {formattedApiTime}.
-          </>
-        ) : (
-          "Ładowanie danych aktualizacji..."
-        )}
+        Kursy walut pobierane są z serwisu zewnętrznego. Ostatnia&nbsp;
+        <strong>aktualizacja</strong>: {formattedApiDate} roku, o godzinie:{" "}
+        {formattedApiTime}.
       </ApiFetchDate>
     </Wrapper>
   );

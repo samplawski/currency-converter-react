@@ -10,10 +10,8 @@ import {
 } from "./styled.js";
 
 const formatCurrencyRate = (rate) => {
-  // 1. Ustawienie lokalizacji na polską (pl-PL)
-  // 2. Ustawienie 2 cyfr po przecinku (jak toFixed(2))
   return new Intl.NumberFormat("pl-PL", {
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 2, // Ustawienie 2 cyfr po przecinku (jak toFixed(2))
     maximumFractionDigits: 2,
   }).format(rate);
 };
