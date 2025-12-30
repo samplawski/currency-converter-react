@@ -7,11 +7,11 @@ import {
 } from "./styled.js";
 
 const CurrencyInputArea = ({
-  currencies,
   amountPLN,
   onAmountChange,
   onCurrencyChange,
   targetCurrencyCode,
+  rates,
 }) => (
   <Fieldset>
     <Legend>Kalkulator walut</Legend>
@@ -25,11 +25,12 @@ const CurrencyInputArea = ({
           value={targetCurrencyCode}
           onChange={({ target }) => onCurrencyChange(target.value)}
         >
-          {currencies.map((currency) => (
-            <option key={currency.id} value={currency.code}>
-              {currency.symbol} {currency.code}
-            </option>
-          ))}
+          {rates &&
+            Object.keys(rates).map((currencyCode) => (
+              <option key={currencyCode} value={currencyCode}>
+                {currencyCode}
+              </option>
+            ))}
         </SelectField>
       </label>
     </p>

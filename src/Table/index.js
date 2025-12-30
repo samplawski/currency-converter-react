@@ -40,7 +40,7 @@ const Table = ({ currencies }) => (
             <Cell>{currency.namePL}</Cell>
             <Cell>{currency.code}</Cell>
             <Cell>{currency.symbol}</Cell>
-            <Cell>{formatCurrencyRate(currency.rate.toFixed(2))} zł</Cell>
+            <Cell>{formatCurrencyRate(currency.rate)} zł</Cell>
           </Row>
         ))}
       </tbody>

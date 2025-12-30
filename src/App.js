@@ -25,13 +25,52 @@ function App() {
     setConfirmedAmountPLN(amountPLN);
   };
 
+  const [rates, setRates] = useState({
+    data: null,
+    loading: false,
+    error: null,
+    date: null,
+  });
+
+  useEffect(() => {
+    const fetchRates = async () => {
+      try {
+        setRates((previousRatesData) => ({
+          ...previousRatesData,
+          loading: true,
+        }));
+        const response = await axios.get(
+          `${process.env.PUBLIC_URL}/rates.json`
+        );
+        setRates({
+          data: response.data.data,
+          loading: false,
+          error: null,
+          date: response.data.meta.last_updated_at,
+        });
+        console.log("Dane pobrane Axiosem:", response.data);
+      } catch (error) {
+        console.error("Błąd pobierania:", error.message);
+      }
+    };
+
+    const timeoutId = setTimeout(fetchRates, 1500);
+
+    return () => clearTimeout(timeoutId);
+    fetchRates();
+  }, []);
+
   const getRate = (code) => {
+    if (rates.data && rates.data[code]) {
+      const valueFromApi = rates.data[code].value;
+      return parseFloat((1 / valueFromApi).toFixed(2));
+    }
     const currency = currencies.find((currency) => currency.code === code);
     if (!currency) {
       console.error(`Nie znaleziono waluty o kodzie: ${code}`);
-      return 1.0;
+      return currency.rate;
     }
-    return currency.rate;
+    return 1.0;
   };
 
   const countOutput = (amountPLN, targetCurrencyCode) => {
@@ -46,6 +85,15 @@ function App() {
     }
   };
 
+  const tableCurrencies = currencies.map((currency) => {
+    const rateFromApi = rates.data ? rates.data[currency.code]?.value : null;
+    return {
+      ...currency,
+      // Dla tabeli: ile PLN za 1 walutę (1 / 0.23 = 4.34)
+      rate: rateFromApi ? (1 / rateFromApi).toFixed(2) : currency.rate,
+    };
+  });
+
   const calculatedOutput = countOutput(confirmedAmountPLN, targetCurrencyCode);
 
   const handleReset = () => {
@@ -54,28 +102,12 @@ function App() {
     setTargetCurrencyCode("USD");
   };
 
-  useEffect(() => {
-    fetch(`${process.env.PUBLIC_URL}/rates.json`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Problem z pobraniem pliku.");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Błąd:", error);
-      });
-  }, []);
-
   return (
     <StyledBody>
-      <Table currencies={currencies} />
+      <Table currencies={tableCurrencies} />
 
       <Converter
-        currencies={currencies}
+        currencies={tableCurrencies}
         amountPLN={amountPLN}
         onAmountChange={handleAmountChange}
         calculatedOutput={calculatedOutput}
@@ -83,6 +115,7 @@ function App() {
         targetCurrencyCode={targetCurrencyCode}
         onReset={handleReset}
         onFormSubmit={handleFormSubmit}
+        rates={rates.data}
       />
 
       <Footer />

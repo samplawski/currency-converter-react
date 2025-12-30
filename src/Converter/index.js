@@ -13,6 +13,7 @@ const Converter = ({
   onCurrencyChange,
   onReset,
   onFormSubmit,
+  rates,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,6 +27,7 @@ const Converter = ({
         onAmountChange={onAmountChange}
         targetCurrencyCode={targetCurrencyCode}
         onCurrencyChange={onCurrencyChange}
+        rates={rates}
       />
       <Buttons onReset={onReset} />
       <Output
