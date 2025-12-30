@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { currencies } from "./currencies";
 import StyledBody from "./Body";
 import Table from "./Table";
