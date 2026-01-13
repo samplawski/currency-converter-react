@@ -2,7 +2,7 @@ import { StyledFooter, Link } from "./styled.js";
 
 const Footer = () => (
   <StyledFooter>
-    <p className="footer__name">Tomasz Sampławski 2025</p>
+    <p className="footer__name">Tomasz Sampławski 2026</p>
     <p>
       <Link
         href="mailto:tsamplawski@gmail.com"
