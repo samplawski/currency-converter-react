@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { currencies } from "./currencies";
+import { useRatesData } from "./useRatesData.js";
 import StyledBody from "./Body";
 import Table from "./Table";
 import Converter from "./Converter";
@@ -8,6 +8,8 @@ import Footer from "./Footer";
 import { StatusWrapper, LoadingStatus, ErrorStatus } from "./styledStatus.js";
 
 function App() {
+  const rates = useRatesData();
+
   const [amountPLN, setAmountPLN] = useState("");
 
   const [confirmedAmountPLN, setConfirmedAmountPLN] = useState("");
@@ -25,41 +27,6 @@ function App() {
   const handleFormSubmit = () => {
     setConfirmedAmountPLN(amountPLN);
   };
-
-  const [rates, setRates] = useState({
-    data: null,
-    loading: true,
-    error: null,
-    date: null,
-  });
-
-  useEffect(() => {
-    const fetchRates = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.currencyapi.com/v3/latest?apikey=cur_live_DegcTyHcxMdZeycj1wbLpgcmdBhiR3Y2qzgTkkQ9&currencies=&base_currency=PLN`
-        );
-        setRates({
-          data: response.data.data,
-          loading: false,
-          error: null,
-          date: response.data.meta.last_updated_at,
-        });
-        console.log("Dane pobrane Axiosem:", response.data);
-      } catch (error) {
-        setRates({
-          data: null,
-          loading: false,
-          error: true,
-          date: null,
-        });
-        console.error("Błąd pobierania:", error.message);
-      }
-    };
-
-    const timeoutId = setTimeout(fetchRates, 1500);
-    return () => clearTimeout(timeoutId);
-  }, []);
 
   const getRate = (code) => {
     if (rates.data && rates.data[code]) {
