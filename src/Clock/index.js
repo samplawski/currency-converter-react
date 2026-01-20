@@ -21,10 +21,7 @@ const Clock = ({ ratesDate }) => {
 
   const apiDateObject = new Date(ratesDate);
   const formattedApiDate = apiDateObject.toLocaleDateString("pl-PL", formDate);
-  const formattedApiTime = apiDateObject.toLocaleTimeString("pl-PL", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const formattedApiTime = apiDateObject.toLocaleTimeString("pl-PL", formTime);
 
   return (
     <Wrapper>
@@ -36,9 +33,9 @@ const Clock = ({ ratesDate }) => {
       </StyledClock>
 
       <ApiFetchDate>
-        Kursy walut pobierane są z serwisu zewnętrznego. Ostatnia&nbsp;
-        <strong>aktualizacja</strong>: {formattedApiDate} roku, o godzinie:{" "}
-        {formattedApiTime}.
+        Kursy walut pobierane są z serwisu zewnętrznego. &nbsp;
+        <strong>Ostatnia aktualizacja</strong>: {formattedApiDate} roku, o
+        godzinie: {formattedApiTime}.
       </ApiFetchDate>
     </Wrapper>
   );
