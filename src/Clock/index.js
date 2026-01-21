@@ -1,4 +1,4 @@
-import { Wrapper, StyledClock, ClockValue, ApiFetchDate } from "./styled.js";
+import { Wrapper, StyledClock, ApiFetchDate } from "./styled.js";
 import { useCurrentDate } from "./useCurrentDate";
 
 const formDate = {
@@ -26,10 +26,8 @@ const Clock = ({ ratesDate }) => {
   return (
     <Wrapper>
       <StyledClock>
-        <ClockValue>
-          Dzisiaj jest {formattedCurrentDate} roku, godzina:{" "}
-          {formattedCurrentTime}.
-        </ClockValue>
+        Dzisiaj jest {formattedCurrentDate} roku, godzina:{" "}
+        {formattedCurrentTime}.
       </StyledClock>
 
       <ApiFetchDate>
