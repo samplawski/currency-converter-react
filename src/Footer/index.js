@@ -14,7 +14,7 @@ const Footer = () => (
     <p>
       <Link
         $git
-        href="https://github.com/samplawski/currency-converter"
+        href="https://github.com/samplawski/currency-converter-react"
         title="otwiera stronę projektu na GitHub"
         rel="noreferrer noopener"
         target="_blank"
