@@ -3,6 +3,9 @@
 # Dokumenty i pliki tymczasowe
 kalkulator react - kod w plikach.docx
 API.txt
+.repomixignore
+repomix-output.txt
+repomix-output.xml
 
 # dependencies
 /node_modules
